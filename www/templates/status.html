@@ -1,0 +1,36 @@
+<ion-view view-title="Status">
+  <ion-content class="padding">
+
+  
+  <br>
+  <center>
+  
+  <h1>Hello {{userName}}</h1>
+
+  
+  <br/>
+  
+    <h2>You have &nbsp; <span style="font-weight:bold;font-size:34px;">{{365 - wishesCount}} </span> &nbsp; wishes to add .. <span ng-if="365 - wishCount > 100"> Hurry !!! </span></h2>
+  
+    <br/>
+
+   <h4> Status Count based on type</h4> 
+   <br/>
+
+    <div class="button-bar" style="color:black;font-weight:bolder">
+     <a class="button button-calm" style="color:black;font-weight:bolder"> Wish -   {{wishCount}}</a>
+     <a class="button button-energized" style="color:black;font-weight:bolder"> Memory -   {{memoryCount}}</a>
+   </div>
+   <br/>
+   <div class="button-bar" style="color:black;font-weight:bolder">
+     <a class="button button-balanced" style="color:black;font-weight:bolder"> Characteristics -    {{charCount}}</a>
+     <a class="button button-assertive" style="color:black;font-weight:bolder"> Sad Moments -    {{sadMomCount}}</a>
+   </div> 
+
+
+
+</center>
+
+
+  </ion-content>
+</ion-view>
