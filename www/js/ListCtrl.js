@@ -69,9 +69,12 @@ angular.module('wish').controller('ListCtrl', function($scope,PouchDb,$cordovaTo
 			      console.log("Document deleted successfully");
 			      if($scope.wishes){
 			      	var obj=_.find($scope.wishes,{_id:wish._id});
-			   		if(obj)
+			   		if(obj){
 		  				$scope.wishes.splice(obj,1);
-		  			$scope.$apply();
+		  				$scope.filteredRes.splice(obj,1);
+		  				$scope.$apply();
+		  			}
+		  			
 			   	  }
 		});
 	}
