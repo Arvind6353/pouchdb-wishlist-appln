@@ -2,7 +2,6 @@
 angular.module('wish').controller('StatusCtrl', function($scope,PouchDb,$ionicPopup,$cordovaLocalNotification) {
 
 
-
 if(localStorage.getItem('name'))
 	$scope.userName=localStorage.getItem('name');
 
@@ -12,7 +11,6 @@ $scope.sadMomCount=0;
 $scope.wishCount=0;
 PouchDb.getAll().then(function (result) {
    		 
-
    		for(var i=result.rows.length-1;i>=0;i--){
 	        
 	        var obj = {
@@ -85,7 +83,7 @@ if(!localStorage.getItem('name')){
 					title: "Good Day "+res+" :)",
 					text:"Time to Update the Wish Lists",
 					firstAt: da,
-					every:"minute",
+					every:"day",
 					sound:"file://bgm.mp3"
 				  }).then(function (result) {
 							

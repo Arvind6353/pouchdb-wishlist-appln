@@ -65,12 +65,8 @@ angular.module('wish', ['ionic','ngCordova'])
 
   .state('home.list1', {
       url: '/list1',
-      views: {
-        'list1': {
-          templateUrl: 'templates/list.html',
-          controller: 'ListCtrl'
-        }
-      },
+      templateUrl: 'templates/list.html',
+      controller: 'ListCtrl',
       cache:false
     })
     

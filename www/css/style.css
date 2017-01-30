@@ -1,1 +1,83 @@
 /* Empty. Add your own CSS if you like */
+
+.bg{
+
+  background-color:white;
+}
+.Memory{
+  background-color: #ffc900 !important;
+}
+.Wish{
+
+  background-color: #11c1f3 !important;
+}
+.Moments{
+
+ background-color: #ef473a !important;
+ color:white;
+
+}
+.Characteristics{
+
+  background-color: #33cd5f !important;
+}
+
+#animate{
+
+	font-weight:bold;
+	font-size:34px;
+	text-align:center;
+	padding:0px 0px 0px 0px;
+	
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; 
+    	background-color:yellow;
+	    }
+    50% { opacity: 0.0; 
+    	}
+    100% {
+     	opacity: 1.0;
+    	background-color:yellow;
+     }
+}
+
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; 
+    	background-color:yellow;
+	    }
+    50% { opacity: 0.0; 
+    	}
+    100% {
+     	opacity: 1.0;
+    	background-color:yellow;
+     }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; 
+    	background-color:yellow;
+	    }
+    50% { opacity: 0.0; 
+    	}
+    100% {
+     	opacity: 1.0;
+    	background-color:yellow;
+     }
+}

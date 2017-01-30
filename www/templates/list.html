@@ -1,60 +1,33 @@
-<style>
-
-.bg{
-
-  background-color:white;
-}
-.Memory{
-  background-color: #ffc900 !important;
-}
-.Wish{
-
-  background-color: #11c1f3 !important;
-}
-.Moments{
-
- background-color: #ef473a !important;
- color:white;
-
-}
-.Characteristics{
-
-  background-color: #33cd5f !important;
-}
-</style>
-
 <ion-view view-title="Wish List">
 
-   
-   <ion-nav-buttons side="right">
+   <ion-nav-buttons side="left">
        <button class="button button-icon icon ion-ios-minus-outline"
           ng-click="data.showDelete = !data.showDelete;"></button>
-
    </ion-nav-buttons>
 
-   
-<ion-content scroll="true" class="padding">
-  
+
+  <ion-content  scroll="true" class="padding">
+
+
 <br/><br/>
 
 
 <div class="button-bar">
-  <a class="button icon ion-ios-minus-outline"
-          ng-click="data.showDelete = !data.showDelete;"></a>
-   <a class="button button-calm">W</a>
-   <a class="button button-energized">M</a>
-   <a class="button button-balanced">C</a>
-   <a class="button button-assertive">S</a>
+   <a class="button button-calm" ng-click="filter('Wish')">W</a>
+   <a class="button button-energized" ng-click="filter('Memory')">M</a>
+   <a class="button button-balanced" ng-click="filter('Characteristics')">C</a>
+   <a class="button button-assertive" ng-click="filter('Sad Moments')">S</a>
+   <a class="button icon ion-refresh" ng-click="filter('Reset')"></a>
  </div> 
     
 <br/>
 
   <ion-list 
       show-delete="data.showDelete">
-   <ion-item ng-repeat = "wish in wishes track by $index">
+   <ion-item ng-repeat= "wish in filteredRes track by $index">
       
     <div class="card">
-       <div class="item item-text-wrap bg" ng-class="wish.type">
+       <div class="item item-text-wrap bg " ng-class="wish.type">
         {{wish.text}}   
       </div>
       <div class="item item-divider">

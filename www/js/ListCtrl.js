@@ -3,34 +3,12 @@ angular.module('wish').controller('ListCtrl', function($scope,PouchDb,$cordovaTo
 
 	$scope.wishes=[];
 
+	$scope.filteredRes=[]
 	$scope.$on("$ionicView.enter", function () {
-   $ionicHistory.clearCache();
-   $ionicHistory.clearHistory();
+	   $ionicHistory.clearCache();
+	   $ionicHistory.clearHistory();
 });
 
-
-	$scope.getStyle=function(type){
-
-		var c="pink";
-
-		if(type=="Memory")
-			c="yellow !important";
-		
-		if(type=="Wish")
-			c="blue";
-
-		if(type=="Characteristics")
-			c="yellow";
-
-		if(type=="Sad Moments")
-			c="red";
-
-		console.log(type +" ---"+c);
-		return {
-        	"background-color" : c
-		}
-
-	}
 
 	PouchDb.getAll().then(function (result) {
    		
@@ -42,12 +20,27 @@ angular.module('wish').controller('ListCtrl', function($scope,PouchDb,$cordovaTo
 	            "type":result.rows[i].doc.type
 	        }
 	        $scope.wishes.push(obj);
-	        $scope.$apply();
+	        
 	    }
+	    $scope.filteredRes=angular.copy($scope.wishes);
+	    $scope.$apply();
     
 	}).catch(function (err) {
-	    console.log("eeror fetch ---"+err);
+	    console.log("error fetch ---"+err);
 	});
+
+
+	$scope.filter=function(type){
+
+		if(type=="Reset"){
+			$scope.filteredRes= angular.copy($scope.wishes);
+			return;
+		}
+		$scope.filteredRes= _.filter(angular.copy($scope.wishes),{type:type});
+
+	}
+
+
 
   $scope.data = {
     showDelete: false

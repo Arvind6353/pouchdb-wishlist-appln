@@ -7,6 +7,11 @@ var dbLocal = new PouchDB('test');
 
 var db = new PouchDB('https://arvind6353.cloudant.com/test');
 
+//arvindan921@gmailc.com
+//brianlara//
+//arvind6353
+
+
 //Database information
 db.info(function(err, info) {
    if (err) {
