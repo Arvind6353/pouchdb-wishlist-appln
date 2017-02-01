@@ -1,0 +1,32 @@
+<ion-view title="My Images" ng-init="">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-camera" ng-click="upload()"></button>
+    </ion-nav-buttons>
+
+ <ion-nav-buttons side="left">
+       <button class="button button-icon icon ion-ios-minus-outline"
+          ng-click="data.showDelete = !data.showDelete;"></button>
+  </ion-nav-buttons>
+
+
+    <ion-content>
+<br/>
+    <center><h3 ng-if="images.length>0"> Memorable Images </h3></center>
+    <center><h3 ng-if="images.length==0"> Sorry ... No Images Found </h3></center>
+       <ion-scroll direction="x" style="height:300px; min-height: 300px; overflow: scroll; white-space: nowrap;">
+      		
+
+       	<span class="card" ng-repeat="image in images" >
+
+       		 <span class="" style="display:inline;">
+   
+      			<img  ng-src="data:image/jpeg;base64,{{images[$index].image}}" style="height:290px; padding: 5px 5px 5px 5px;" ng-click="showImages($index)"/>
+  			 </span>  
+ 
+  			 <span class="button icon button-assertive icon ion-minus-circled"
+                   ng-click="deleteImage(image)" style="margin-top:6px;" ng-show="data.showDelete">
+			</span>
+     	</span>	
+    	</ion-scroll>  
+    </ion-content>s
+</ion-view>

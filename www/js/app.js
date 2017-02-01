@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 
 
-angular.module('wish', ['ionic','ngCordova'])
+angular.module('wish', ['ionic','ngCordova','firebase'])
 
 .run(function($ionicPlatform,$rootScope) {
   $ionicPlatform.ready(function() {
@@ -79,7 +79,18 @@ angular.module('wish', ['ionic','ngCordova'])
       }
     },
     cache:false
+  })
+  .state('home.image', {
+    url: '/image',
+    views: {
+      'image': {
+        templateUrl: 'templates/image.html',
+        controller: 'ImageCtrl'
+      }
+    },
+    cache:false
   });
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home/status');

@@ -13,6 +13,8 @@ angular.module('wish').controller('ListCtrl', function($scope,PouchDb,$cordovaTo
 	PouchDb.getAll().then(function (result) {
    		
    		for(var i=result.rows.length-1;i>=0;i--){
+
+   		if(!result.rows[i].doc.isImage){
 	        var obj = {
 	            "_id": result.rows[i].doc._id,
 	            "text": result.rows[i].doc.text,
@@ -20,7 +22,7 @@ angular.module('wish').controller('ListCtrl', function($scope,PouchDb,$cordovaTo
 	            "type":result.rows[i].doc.type
 	        }
 	        $scope.wishes.push(obj);
-	        
+	       } 
 	    }
 	    $scope.filteredRes=angular.copy($scope.wishes);
 	    $scope.$apply();
