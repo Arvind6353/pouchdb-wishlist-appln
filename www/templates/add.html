@@ -8,8 +8,8 @@
 
 
 
-  <label class="item item-input item-select item-calm" ng-init="wish.type=typeList[0].text">
-    <span class="input-label"  style="color:black">Select Type</span>
+  <label class="item item-input item-select item-royal" ng-init="wish.type=typeList[0].text">
+    <span class="input-label"  style="color:white;font-weight:bold">Select Type</span>
 	<select ng-model="wish.type" ng-options="it.text as it.text for it in typeList">
 	  </select>
 	
@@ -18,16 +18,23 @@
 	<br/>
 
    <label class="item item-input item-floating-label">
-   <span class="input-label" style="color:blue">Type Your Message</span>
-    <textarea rows="3" ng-model="wish.msg" placeholder="Type your Wish"></textarea>
+   <span class="input-label" style="color:blue">Type your Message (You may also record your message. Click play button to start recording and stop button to stop recording )</span>
+    <textarea rows="3" ng-model="wish.msg" placeholder="Type your Message (You may also record your message. Click play button to start recording and stop button to stop recording )"></textarea>
    </label>
       
   
 
 
 <br/><br/>
-  <div class="padding">
-  <button class="button button-block button-balanced" ng-click="addWish()"> Add </button>
+  
+<div class="button-bar padding">  
+  <button class="button icon  icon ion-play button-balanced" ng-click="record()"> </button>
+
+  <button class="button icon icon ion-stop button-assertive" ng-click="stopRecord()"> </button>
+</div>
+
+<div class="padding">
+  <button class="button button-block button-positive" ng-click="addWish()"> Add </button>
   </div>
 </div>
 

@@ -58,5 +58,31 @@ $scope.addWish=function(){
 
 }
 
+// speech recognition
+var recognizer = new SpeechRecognition();
+    	  recognizer.continuous = true;
+  		recognizer.interimResults = true;
+ recognizer.onresult = function(event) {
+        if (event.results.length > 0) {
+          $scope.wish.msg = event.results[0][0].transcript;
+          $scope.$apply()
+        }
+     };
+
+ $scope.record = function() {
+      
+      recognizer.start();
+
+ };
+   
+   $scope.stopRecord=function(){
+	
+		recognizer.stop();
+      
+   };   
+
+ // end of speech recognition   
+ 
+
 
 })
